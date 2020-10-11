@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Sab.ProductListing.Features.ProductListing;
-using Sab.Infrastructure.Enum;
+using Sab.Admin.Features.ProductListing;
+using Sab.DataAcess;
+using Sab.Domain.Product;
 using Sab.Infrastructure;
-using System.Threading;
+using Sab.Infrastructure.Enum;
 
-namespace Sab.ProductListing.Api.Controllers
+namespace Sab.Admin.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -23,19 +25,23 @@ namespace Sab.ProductListing.Api.Controllers
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly IValuesService _valuesService;
         private readonly ICommandBus _commandBus;
+        private readonly SabDataContext _dataContext;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, 
+        public WeatherForecastController(ILogger<WeatherForecastController> logger,
             IValuesService valuesService,
-            ICommandBus commandBus)
+            ICommandBus commandBus,
+            SabDataContext dataContext)
         {
             _logger = logger;
             _valuesService = valuesService;
             _commandBus = commandBus;
+            _dataContext = dataContext;
         }
 
         [HttpGet]
         public async Task<IEnumerable<WeatherForecast>> Get()
         {
+
             var cmd = new ProductListingCommand()
             {
                 ProductCategory = ProductCategory.Laptob

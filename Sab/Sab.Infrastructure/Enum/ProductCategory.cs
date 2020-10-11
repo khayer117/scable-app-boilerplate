@@ -1,4 +1,4 @@
-﻿namespace Sab.Features.Enum
+﻿namespace Sab.Infrastructure.Enum
 {
     public enum ProductCategory
     {

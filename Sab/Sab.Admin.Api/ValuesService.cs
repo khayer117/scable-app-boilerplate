@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 
-namespace Sab.ProductListing.Api
+namespace Sab.Admin.Api
 {
     public interface IValuesService
     {

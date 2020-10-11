@@ -1,6 +1,6 @@
 ﻿using Sab.Infrastructure.Enum;
 
-namespace Sab.ProductListing.Features.ProductListing
+namespace Sab.Admin.Features.ProductListing
 {
     public class ProductListingItem
     {

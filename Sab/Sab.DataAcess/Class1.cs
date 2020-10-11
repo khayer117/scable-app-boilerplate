@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sab.Features
+namespace Sab.DataAcess
 {
     public class Class1
     {

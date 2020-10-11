@@ -9,7 +9,7 @@ using Sab.DataAcess;
 using Sab.Infrastructure;
 using System.Linq;
 
-namespace Sab.ProductListing.Api
+namespace Sab.Admin.Api
 {
     public class Startup
     {
@@ -27,6 +27,7 @@ namespace Sab.ProductListing.Api
 
             services.AddDbContext<SabDataContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

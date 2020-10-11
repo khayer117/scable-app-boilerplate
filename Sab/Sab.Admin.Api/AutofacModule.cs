@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using Microsoft.Extensions.Logging;
 
-namespace Sab.ProductListing.Api
+namespace Sab.Admin.Api
 {
     public class AutofacModule : Module
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Sab.ProductListing.Api
+namespace Sab.Admin.Api
 {
     public class WeatherForecast
     {
