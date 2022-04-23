@@ -3,10 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Sab.Domain.Product;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Sab.Domain;
 
 namespace Sab.DataAcess
 {
-    public class SabDataContext : DbContext
+    public class SabDataContext : IdentityDbContext<ApplicationUser>
     {
         public SabDataContext(DbContextOptions<SabDataContext> options) : base(options)
         { 
@@ -21,6 +23,8 @@ namespace Sab.DataAcess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             // modelBuilder.Entity<Course>().ToTable("Course");
 
             modelBuilder.Entity<TagProduct>()

@@ -1,2 +1,14 @@
 -- Database Name: SabDb
- 
+
+https://jasonwatmore.com/post/2019/06/10/angular-8-user-registration-and-login-example-tutorial
+
+-- .net core web api
+https://jasonwatmore.com/post/2019/10/11/aspnet-core-3-jwt-authentication-tutorial-with-example-api
+> npm install
+> npm start
+
+-- core identity authentication and authorization
+https://www.c-sharpcorner.com/article/authentication-and-authorization-in-asp-net-core-web-api-with-json-web-tokens
+
+https://docs.microsoft.com/en-us/dotnet/architecture/microservices/secure-net-microservices-web-applications/
+
