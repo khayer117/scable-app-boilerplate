@@ -45,7 +45,7 @@ namespace Sab.Authentication.Api.Controllers
         {
             return Ok("Hello from User Controller");
         }
-        [Authorize]
+        [Authorize(Policy = UserPolicies.AdminAndUser)]
         [HttpGet("get-top")]
         public IActionResult GetTop()
         {
@@ -56,6 +56,12 @@ namespace Sab.Authentication.Api.Controllers
         public IActionResult GetAdmin()
         {
             return Ok("It's Admin");
+        }
+        [Authorize(Policy = UserPolicies.SeniorUser)]
+        [HttpGet("get-total-user-count")]
+        public IActionResult GetTotalUserCount()
+        {
+            return Ok(50);
         }
     }
 }

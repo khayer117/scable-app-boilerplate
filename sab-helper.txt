@@ -1,5 +1,16 @@
 -- Database Name: SabDb
 
+test user:
+Admin:
+"username" : "test-admin-1",
+"password" : "Pass@123",
+"email" : "test@test.com"
+
+User:
+"username" : "test-user-1",
+"password" : "Pass@123",
+"email" : "test@test.com"
+
 https://jasonwatmore.com/post/2019/06/10/angular-8-user-registration-and-login-example-tutorial
 
 -- .net core web api
@@ -11,4 +22,14 @@ https://jasonwatmore.com/post/2019/10/11/aspnet-core-3-jwt-authentication-tutori
 https://www.c-sharpcorner.com/article/authentication-and-authorization-in-asp-net-core-web-api-with-json-web-tokens
 
 https://docs.microsoft.com/en-us/dotnet/architecture/microservices/secure-net-microservices-web-applications/
+
+-- good one.
+https://dotnetcorecentral.com/
+https://www.youtube.com/watch?v=-N6O2rtCdI8
+https://dotnetcorecentral.com/blog/asp-net-core-authorization/
+
+-- dotnet and angular
+https://www.toptal.com/angular/angular-5-asp-net-core
+
+
 

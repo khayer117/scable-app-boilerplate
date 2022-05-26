@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sab.DataAcess;
 
 namespace Sab.DataAcess.Migrations
 {
     [DbContext(typeof(SabDataContext))]
-    partial class SabDataContextModelSnapshot : ModelSnapshot
+    [Migration("20220512173237_new-col-at-application-user-identity")]
+    partial class newcolatapplicationuseridentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

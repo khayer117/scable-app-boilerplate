@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   @ViewChild('userLoginForm',{ static: false }) UserLoginForm?: NgForm;
   userLogin: UserLogin;
   returnUrl: string;
+  loginMsg: string;
 
   constructor(
         private route: ActivatedRoute,
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
 
     // reset alerts on submit
     this.alertService.clear();
+    this.loginMsg = '';
 
     this.authenticationService.login(this.userLogin.userId, this.userLogin.password)
     .pipe(first())
@@ -50,7 +52,9 @@ export class LoginComponent implements OnInit {
             this.router.navigate([this.returnUrl]);
         },
         error => {
-            this.alertService.error(error);
+            this.loginMsg = 'Invalid userid/password';
+            console.log('invalid User Id or Password');
+            //this.alertService.error(error);
         });
     }
 }

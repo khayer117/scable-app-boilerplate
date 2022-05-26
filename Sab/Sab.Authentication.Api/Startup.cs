@@ -42,6 +42,17 @@ namespace Sab.Authentication.Api
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
                 );
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    name: "AllowOrigin",
+                    builder => {
+                        builder.WithOrigins("http://localhost:4200")
+                                .AllowAnyMethod()
+                                .AllowAnyHeader();
+                    });
+            });
+
             // For Identity  
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<SabDataContext>()
@@ -54,7 +65,6 @@ namespace Sab.Authentication.Api
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-
             // Adding Jwt Bearer  
             .AddJwtBearer(options =>
             {
@@ -68,6 +78,15 @@ namespace Sab.Authentication.Api
                     ValidIssuer = Configuration["AppSettings:ValidIssuer"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["AppSettings:Secret"]))
                 };
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy(UserPolicies.AdminAndUser,
+                    policy => policy.RequireRole(UserRoles.User, UserRoles.Admin));
+
+                options.AddPolicy(UserPolicies.SeniorUser,
+                    policy => policy.Requirements.Add(new SeniorEmployeeRequirementCommand()));
             });
         }
 
@@ -83,6 +102,9 @@ namespace Sab.Authentication.Api
 
             app.UseRouting();
 
+            app.UseCors("AllowOrigin"); // second
+
+            // Using custom JWT implementation
             //app.UseMiddleware<JwtMiddleware>();
 
             app.UseAuthentication(); // for ASPnet Identity jwt

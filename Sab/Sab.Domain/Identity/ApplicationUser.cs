@@ -7,5 +7,6 @@ namespace Sab.Domain
 {
     public class ApplicationUser : IdentityUser
     {
+        public DateTime CreatedDate { get; set; }
     }
 }

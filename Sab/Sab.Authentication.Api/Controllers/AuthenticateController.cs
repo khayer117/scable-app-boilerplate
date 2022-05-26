@@ -61,6 +61,7 @@ namespace Sab.Authentication.Api.Controllers
 
                 return Ok(new
                 {
+                    userName = model.Username,
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     expiration = token.ValidTo
                 });
@@ -80,7 +81,8 @@ namespace Sab.Authentication.Api.Controllers
             {
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.Username
+                UserName = model.Username,
+                CreatedDate = DateTime.Now
             };
             var result = await userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
@@ -101,7 +103,8 @@ namespace Sab.Authentication.Api.Controllers
             {
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.Username
+                UserName = model.Username,
+                CreatedDate = DateTime.Now
             };
             var result = await userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
